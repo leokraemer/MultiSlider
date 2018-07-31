@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -21,22 +20,25 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            debuggable true
+            jniDebuggable true
+            minifyEnabled false
+        }
     }
     android {
         lintOptions {
             abortOnError false
         }
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
     implementation rootProject.ext.supportCompat
     implementation rootProject.ext.supportDesign
-    androidTestCompile rootProject.ext.junit
-    androidTestCompile rootProject.ext.supportAnnotations
-    androidTestCompile rootProject.ext.supportTestRunner
-    androidTestCompile rootProject.ext.mockitoAndroid
+    androidTestImplementation rootProject.ext.junit
+    androidTestImplementation rootProject.ext.supportAnnotations
+    androidTestImplementation rootProject.ext.supportTestRunner
+    androidTestImplementation rootProject.ext.mockitoAndroid
 }
-
-apply from: 'https://raw.githubusercontent.com/djodjoni/gradle-mvn-push/master/gradle-mvn-push-android.gradle'
-

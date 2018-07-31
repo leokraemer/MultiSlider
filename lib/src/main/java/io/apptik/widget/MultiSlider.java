@@ -334,7 +334,7 @@ public class MultiSlider extends View {
          * @return
          */
         public Thumb setValue(int value) {
-            return setValue(value, false);
+            return setValue(value, true);
         }
 
         public String getTag() {
@@ -859,7 +859,7 @@ public class MultiSlider extends View {
     }
 
     private synchronized void setThumbValue(Thumb thumb, int value, boolean fromUser) {
-        setThumbValue(thumb, value, false, fromUser);
+        setThumbValue(thumb, value, true, fromUser);
     }
 
     private void pushNeighbouringThumbs(Thumb thumb, int value, boolean fromUser) {

@@ -2,7 +2,6 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
@@ -23,11 +22,10 @@ android {
         abortOnError false
     }
 
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
     implementation project(':lib')
     implementation rootProject.ext.supportTestEspresso
 }
-
-apply from: 'https://raw.githubusercontent.com/djodjoni/gradle-mvn-push/master/gradle-mvn-push-android.gradle'
